@@ -90,13 +90,33 @@ export default {
       ],
     };
   },
+
+  methods: {
+    getImgUrl(imgName) {
+      return new URL(`../assets/img/${imgName}`, import.meta.url).href;
+    },
+  },
 };
 </script>
 
 <template>
   <main>
     <div class="container">
-      <div class="card"></div>
+      <div v-for="card in cards" class="card">
+        <div class="card-img">
+          <img :src="getImgUrl(card.sprites.firstImg)" alt="" />
+        </div>
+        <div class="card-details">
+          <p>{{ card.brand }}</p>
+          <h3>{{ card.title.toUpperCase() }}</h3>
+          <p>
+            {{ card.descountedPrice }}
+            <span>
+              {{ card.originalPrice }}
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   </main>
 </template>
@@ -104,5 +124,19 @@ export default {
 <style lang="scss" scoped>
 main {
   padding: 30px 0;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .card {
+      width: calc(30% - 10px);
+      margin: 5px;
+      background-color: aqua;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 </style>
