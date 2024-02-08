@@ -158,7 +158,7 @@ export default {
             :class="card.state.favourite ? 'active' : ''"
             class="favourites"
           >
-            +
+            <i class="fa-solid fa-heart"></i>
           </div>
         </div>
         <div class="card-details">

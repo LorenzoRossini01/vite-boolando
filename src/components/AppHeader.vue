@@ -3,6 +3,11 @@ export default {
   data() {
     return {
       navList: ["Donna", "Uomo", "Bambini"],
+      navIcons: [
+        "fa-regular fa-user",
+        "fa-regular fa-heart",
+        "fa-solid fa-bag-shopping",
+      ],
     };
   },
 };
@@ -13,7 +18,9 @@ export default {
     <div class="container">
       <nav>
         <ul>
-          <li v-for="navItem in navList">{{ navItem }}</li>
+          <li v-for="navItem in navList">
+            <a href="#">{{ navItem }}</a>
+          </li>
         </ul>
       </nav>
 
@@ -23,7 +30,9 @@ export default {
 
       <nav>
         <ul>
-          <li v-for="navItem in navList">{{ navItem }}</li>
+          <li v-for="icon in navIcons">
+            <a href="#"><i :class="icon"></i></a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -52,6 +61,10 @@ header {
   li {
     display: inline-block;
     margin: 0 10px;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
   div {

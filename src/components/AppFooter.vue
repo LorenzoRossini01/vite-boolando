@@ -57,18 +57,21 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  padding: 2rem 0;
+  padding: 1.4rem 0;
   background-color: #1a1a1a;
   color: white;
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    h3 {
+      font-size: 1rem;
+    }
     ul {
       display: flex;
       gap: 10px;
       font-size: 0.7rem;
-      margin-top: 1rem;
+      margin-top: 0.6rem;
     }
     li {
       a {
