@@ -49,7 +49,9 @@ export default {
       <div class="price">
         <p>
           {{ card.descountedPrice }} €
-          <span> {{ card.originalPrice }} € </span>
+          <span v-show="card.bagde.discountValue > 0">
+            {{ card.originalPrice }} €
+          </span>
         </p>
       </div>
     </div>
