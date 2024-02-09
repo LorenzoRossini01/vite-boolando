@@ -1,30 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      footerLink: [
-        {
-          text: "Informazioni legali",
-          href: "#",
-        },
-        {
-          text: "Informativa sulla privacy",
-          href: "#",
-        },
-        {
-          text: "Diritto di recesso",
-          href: "#",
-        },
-      ],
-
-      footerIcons: [
-        "fa-brands fa-square-twitter",
-        "fa-brands fa-square-facebook",
-        "fa-brands fa-square-instagram",
-        "fa-brands fa-square-pinterest",
-        "fa-brands fa-square-youtube",
-      ],
-    };
+  props: {
+    links: Array,
+    icons: Array,
   },
 };
 </script>
@@ -35,7 +13,7 @@ export default {
       <div class="footer-left">
         <h3>Boolando s.r.l</h3>
         <ul>
-          <li v-for="link in footerLink">
+          <li v-for="link in links">
             <a :href="link.href">{{ link.text }}</a>
           </li>
         </ul>
@@ -44,7 +22,7 @@ export default {
       <div class="footer-right">
         <p>Trovaci anche su</p>
         <ul>
-          <li v-for="icon in footerIcons">
+          <li v-for="icon in icons">
             <a href="#">
               <i :class="icon" class="fa-2x"></i>
             </a>

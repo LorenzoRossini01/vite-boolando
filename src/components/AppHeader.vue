@@ -1,14 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      navList: ["Donna", "Uomo", "Bambini"],
-      navIcons: [
-        "fa-regular fa-user",
-        "fa-regular fa-heart",
-        "fa-solid fa-bag-shopping",
-      ],
-    };
+  props: {
+    navList: Array,
+    navIcons: Array,
   },
 };
 </script>
