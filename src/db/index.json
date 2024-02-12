@@ -109,5 +109,26 @@
         "hover": false
       }
     }
+  ],
+
+  "footerLink": [
+    {
+      "text": "Informazioni legali",
+      "href": "#"
+    },
+    {
+      "text": "Informativa sulla privacy",
+      "href": "#"
+    },
+    {
+      "text": "Diritto di recesso",
+      "href": "#"
+    }
+  ],
+
+  "headerNavList": [
+    { "title": "Donna", "id": "1", "href": "#" },
+    { "title": "Uomo", "id": "2", "href": "#" },
+    { "title": "Bambino", "id": "3", "href": "#" }
   ]
 }

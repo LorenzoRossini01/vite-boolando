@@ -9,7 +9,7 @@ export default {
     return {
       store,
 
-      headerNavList: ["Donna", "Uomo", "Bambini"],
+      headerNavList: [],
 
       headerNavIcons: [
         "fa-regular fa-user",
@@ -19,20 +19,7 @@ export default {
 
       mainCards: [],
 
-      footerLink: [
-        {
-          text: "Informazioni legali",
-          href: "#",
-        },
-        {
-          text: "Informativa sulla privacy",
-          href: "#",
-        },
-        {
-          text: "Diritto di recesso",
-          href: "#",
-        },
-      ],
+      footerLink: [],
 
       footerIcons: [
         "fa-brands fa-square-twitter",
@@ -47,8 +34,16 @@ export default {
   components: { AppHeader, AppMain, AppFooter },
 
   created() {
+    axios.get(`${store.APIuri}headerNavList`).then((res) => {
+      this.headerNavList = res.data;
+    });
+
     axios.get(`${store.APIuri}maincards`).then((res) => {
       this.mainCards = res.data;
+    });
+
+    axios.get(`${store.APIuri}footerLink`).then((res) => {
+      this.footerLink = res.data;
     });
   },
 };

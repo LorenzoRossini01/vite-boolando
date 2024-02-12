@@ -13,7 +13,7 @@ export default {
       <nav>
         <ul>
           <li v-for="navItem in navList">
-            <a href="#">{{ navItem }}</a>
+            <a :href="navItem.href">{{ navItem.title }}</a>
           </li>
         </ul>
       </nav>
