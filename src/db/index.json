@@ -1,6 +1,7 @@
 {
   "maincards": [
     {
+      "id": "1",
       "brand": "levi's",
       "title": "relaxed fit tee unisex",
       "descountedPrice": 14.99,
@@ -20,6 +21,7 @@
       }
     },
     {
+      "id": "2",
       "brand": "guess",
       "title": "roses tee",
       "descountedPrice": 20.99,
@@ -38,6 +40,7 @@
       }
     },
     {
+      "id": "3",
       "brand": "come zucchero filato",
       "title": "voglia di colori pastello",
       "descountedPrice": 129.99,
@@ -56,6 +59,7 @@
       }
     },
     {
+      "id": "4",
       "brand": "levi's",
       "title": "tee unisex",
       "descountedPrice": 14.99,
@@ -74,6 +78,7 @@
       }
     },
     {
+      "id": "5",
       "brand": "maya deluxe",
       "title": "stripe bodice",
       "descountedPrice": 99.99,
@@ -92,6 +97,7 @@
       }
     },
     {
+      "id": "6",
       "brand": "esprit",
       "title": "maglione - black",
       "descountedPrice": 29.99,
@@ -114,14 +120,17 @@
   "footerLink": [
     {
       "text": "Informazioni legali",
+      "id": "1",
       "href": "#"
     },
     {
       "text": "Informativa sulla privacy",
+      "id": "2",
       "href": "#"
     },
     {
       "text": "Diritto di recesso",
+      "id": "3",
       "href": "#"
     }
   ],
