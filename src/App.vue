@@ -2,11 +2,15 @@
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import AppFooter from "./components/AppFooter.vue";
+import { store } from "./store";
 import axios from "axios";
 export default {
   data() {
     return {
+      store,
+
       headerNavList: ["Donna", "Uomo", "Bambini"],
+
       headerNavIcons: [
         "fa-regular fa-user",
         "fa-regular fa-heart",
@@ -43,7 +47,7 @@ export default {
   components: { AppHeader, AppMain, AppFooter },
 
   created() {
-    axios.get("http://localhost:3000/maincards").then((res) => {
+    axios.get(`${store.APIuri}maincards`).then((res) => {
       this.mainCards = res.data;
     });
   },
