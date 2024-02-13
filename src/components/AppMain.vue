@@ -2,6 +2,12 @@
 import { store } from "../store";
 import AppCard from "./AppCard.vue";
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
+
   props: {
     cards: Array,
   },
@@ -11,8 +17,17 @@ export default {
   },
 
   methods: {
-    showModal() {
+    handleCardOpen(productIndex) {
       store.modal.show = true;
+      const selectedCard = this.cards[productIndex];
+
+      store.modal.title = selectedCard.title;
+      store.modal.brand = selectedCard.brand;
+      store.modal.descountedPrice = selectedCard.descountedPrice;
+      store.modal.originalPrice = selectedCard.originalPrice;
+      store.modal.bagde.discountValue = selectedCard.bagde.discountValue;
+      store.modal.bagde.sostenibility = selectedCard.bagde.sostenibility;
+      store.modal.sprites.firstImg = selectedCard.sprites.firstImg;
     },
   },
 };
@@ -24,7 +39,8 @@ export default {
       <app-card
         v-for="(card, index) in cards"
         :card="card"
-        @click="showModal()"
+        :index="index"
+        @card-open="handleCardOpen"
       />
     </div>
   </main>

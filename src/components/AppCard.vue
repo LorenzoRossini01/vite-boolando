@@ -1,8 +1,11 @@
 <script>
 export default {
   props: {
+    index: Number,
     card: Object,
   },
+
+  emits: ["card-open"],
 
   methods: {
     getImgUrl(imgName) {
@@ -13,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" @click="$emits('card-open', this.index)">
     <div
       class="card-img"
       @mouseover="card.state.hover = true"

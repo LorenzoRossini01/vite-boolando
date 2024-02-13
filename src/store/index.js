@@ -4,10 +4,18 @@ export const store = reactive({
   APIuri: "http://localhost:3000/",
 
   modal: {
-    show: true,
+    show: false,
     title: "",
     brand: "",
     descountedPrice: "",
     originalPrice: "",
+    sprites: {
+      firstImg: "",
+      secondImg: "",
+    },
+    bagde: {
+      discountValue: 50,
+      sostenibility: true,
+    },
   },
 });

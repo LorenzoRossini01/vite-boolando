@@ -12,6 +12,10 @@ export default {
     closeModal() {
       store.modal.show = false;
     },
+
+    getImgUrl(imgName) {
+      return new URL(`../assets/img/${imgName}`, import.meta.url).href;
+    },
   },
 };
 </script>
@@ -20,20 +24,34 @@ export default {
   <div class="layover">
     <div class="modal">
       <div class="modal-left">
-        <img src="../assets/img/1.webp" alt="" />
+        <img :src="getImgUrl(store.modal.sprites.firstImg)" alt="" />
       </div>
       <div class="modal-right">
         <div class="modal-top">
-          <h1>modale</h1>
+          <h3>{{ store.modal.title }}</h3>
           <i class="fa-solid fa-xmark fa-xl" @click="closeModal()"></i>
         </div>
-
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
-          excepturi illum in aspernatur consectetur eveniet suscipit ab beatae
-          expedita voluptatibus? Laborum similique autem praesentium. Ullam
-          error nesciunt aut iure minima?
-        </p>
+        <div class="modal-bottom">
+          <div class="badges">
+            <div v-show="store.modal.bagde.discountValue > 0" class="discount">
+              -{{ store.modal.bagde.discountValue }}%
+            </div>
+            <div v-show="store.modal.bagde.sostenibility" class="sostenibility">
+              Sostenibilità
+            </div>
+          </div>
+          <div>
+            <b>Brand:</b>
+            <p>{{ store.modal.brand }}</p>
+          </div>
+          <div class="price">
+            <b>Prezzo:</b>
+            <p>{{ store.modal.descountedPrice }} €</p>
+            <span v-show="store.modal.bagde.discountValue > 0">
+              {{ store.modal.originalPrice }} €
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -66,12 +84,71 @@ export default {
     .modal-right {
       width: 60%;
       padding: 1rem;
+      position: relative;
 
       .modal-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-right: 0.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #333;
+
+        h3 {
+          font-size: 1.5rem;
+          text-transform: uppercase;
+        }
+      }
+
+      .modal-bottom {
+        padding-top: 1rem;
+
+        div {
+          padding: 0.5rem 0;
+        }
+
+        p {
+          text-transform: capitalize;
+          display: inline;
+          margin-left: 0.5rem;
+        }
+
+        .badges {
+          bottom: 2rem;
+          display: flex;
+          position: absolute;
+          bottom: 10px;
+          gap: 5px;
+          div {
+            padding: 3px 7px;
+            background-color: aliceblue;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            &.sostenibility {
+              background-color: green;
+            }
+            &.discount {
+              background-color: red;
+            }
+          }
+        }
+
+        .price {
+          p {
+            font-size: 1.5rem;
+            color: red;
+            font-weight: 600;
+            display: inline;
+            margin: 0 0.5rem;
+          }
+          span {
+            font-size: 1rem;
+            color: black;
+            text-decoration: line-through;
+            font-weight: 200;
+          }
+        }
       }
     }
   }
