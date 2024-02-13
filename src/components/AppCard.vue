@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <div class="card" @click="$emits('card-open', this.index)">
+  <div class="card" @click="$emit('card-open', this.index)">
     <div
       class="card-img"
       @mouseover="card.state.hover = true"
