@@ -2,6 +2,7 @@
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import AppFooter from "./components/AppFooter.vue";
+import AppModal from "./components/AppModal.vue";
 import { store } from "./store";
 import axios from "axios";
 export default {
@@ -31,7 +32,7 @@ export default {
     };
   },
 
-  components: { AppHeader, AppMain, AppFooter },
+  components: { AppHeader, AppMain, AppFooter, AppModal },
 
   created() {
     axios.get(`${store.APIuri}headerNavList`).then((res) => {
@@ -51,6 +52,7 @@ export default {
 
 <template>
   <app-header :navList="headerNavList" :navIcons="headerNavIcons"></app-header>
+  <app-modal></app-modal>
   <app-main :cards="mainCards"></app-main>
   <app-footer :links="footerLink" :icons="footerIcons"></app-footer>
 </template>
