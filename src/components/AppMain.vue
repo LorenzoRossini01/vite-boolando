@@ -1,4 +1,5 @@
 <script>
+import { store } from "../store";
 import AppCard from "./AppCard.vue";
 export default {
   props: {
@@ -8,13 +9,23 @@ export default {
   components: {
     AppCard,
   },
+
+  methods: {
+    showModal() {
+      store.modal.show = true;
+    },
+  },
 };
 </script>
 
 <template>
   <main>
     <div class="container">
-      <app-card v-for="card in cards" :card="card" />
+      <app-card
+        v-for="(card, index) in cards"
+        :card="card"
+        @click="showModal()"
+      />
     </div>
   </main>
 </template>

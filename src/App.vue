@@ -52,7 +52,7 @@ export default {
 
 <template>
   <app-header :navList="headerNavList" :navIcons="headerNavIcons"></app-header>
-  <app-modal></app-modal>
+  <app-modal v-if="store.modal.show"></app-modal>
   <app-main :cards="mainCards"></app-main>
   <app-footer :links="footerLink" :icons="footerIcons"></app-footer>
 </template>
