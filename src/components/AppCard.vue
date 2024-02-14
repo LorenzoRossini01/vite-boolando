@@ -16,11 +16,12 @@ export default {
 </script>
 
 <template>
-  <div class="card" @click="$emit('card-open', this.index)">
+  <div class="card">
     <div
       class="card-img"
       @mouseover="card.state.hover = true"
       @mouseleave="card.state.hover = false"
+      @click="$emit('card-open', this.index)"
     >
       <img :src="getImgUrl(card.sprites.firstImg)" alt="" />
       <img
@@ -37,14 +38,13 @@ export default {
           Sostenibilità
         </div>
       </div>
-
-      <div
-        @click="card.state.favourite = !card.state.favourite"
-        :class="card.state.favourite ? 'active' : ''"
-        class="favourites"
-      >
-        <i class="fa-solid fa-heart"></i>
-      </div>
+    </div>
+    <div
+      @click="card.state.favourite = !card.state.favourite"
+      :class="card.state.favourite ? 'active' : ''"
+      class="favourites"
+    >
+      <i class="fa-solid fa-heart"></i>
     </div>
     <div class="card-details">
       <p>{{ card.brand }}</p>
@@ -64,6 +64,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   width: calc(100% / 3 - 10px);
+  position: relative;
   margin: 5px;
   .card-img {
     position: relative;
@@ -97,22 +98,21 @@ export default {
         }
       }
     }
+  }
+  .favourites {
+    width: 50px;
+    height: 50px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    cursor: pointer;
 
-    .favourites {
-      width: 50px;
-      height: 50px;
-      background-color: aliceblue;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      right: 0;
-      top: 1rem;
-      cursor: pointer;
-
-      &.active {
-        color: red;
-      }
+    &.active {
+      color: red;
     }
   }
 
